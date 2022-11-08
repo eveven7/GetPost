@@ -1,33 +1,35 @@
 <?php
-$color = "black";
-
+$color='orange';
+$masyvasRaides = ['A','B','C','D','E','F','G','H','I','J'];
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['checkbox'])){
+echo count(($_POST['checkbox'])).'/'.$_POST['times'];
+$color='white';
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
     <title>Document</title>
 </head>
-<body style="background-color:<?= $color ?>;">
-
-    
-   
+<body style="background-color:<?= $color?>;">
+<style>
+.lbl{
+    color:white;
+}
+</style>
+ <?php if ($_SERVER['REQUEST_METHOD'] == 'GET') { ?>
     <form action="" method="post">
-               <button type="submit"> Click me </button>
+ <?php for ($i=0; $i < rand(3,10); $i++) { ?>
+      <label class="lbl" for="a <?= $i ?>"><?=$masyvasRaides[$i]?></label>
+      <input type="checkbox" name="checkbox[]" id="a <?= $i ?>">
+      <br>
+ <?php } ?>
+ <input type="hidden" name="times" value="<?= $i ?>">
+    <br>  <button type="submit">PRESS</button> 
     </form>
-
-    <input type="checkbox" name="checkbox1" value="value1">
-    <label> A </label>
-    <input type="checkbox" name="checkbox2" value="value1">
-    <label> B </label>
-    <input type="checkbox" name="checkbox3" value="value1">
-    <label> C </label>
-    <input type="checkbox" name="checkbox4" value="value1">
-    <label> D </label>
+ <?php } ?>
 </body>
 </html>
