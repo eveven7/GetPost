@@ -1,5 +1,7 @@
+<!-- sukurti puslapį su duomenų suvedimo formą. Duomenis saugoti sesijos 2d masyve. atvaizduoti duomenis HTML table. -->
+
 <?php
-$color = "orange";
+$color = "#ea6c70";
 
 session_start();
 
@@ -39,9 +41,9 @@ if (isset($_POST['delete'])) {
 </head>
 <body style="background-color:<?= $color ?>;">
 
- <form action="" method="post">
-    <div class="h1"> Smart Goal </div>
-    <br>
+        <form action="" method="post">
+                             <div class="h1"> Smart Goal </div>
+                             <br>
      
                          <div class="form-outline mb-4">
                             <input type="text" name="form1" class="form-control" />
@@ -86,7 +88,6 @@ if (isset($_POST['delete'])) {
   <tbody>
 <?php
 
-
     foreach ($_SESSION["forms"] as $form => $value ) { 
         
         ?> 
@@ -104,7 +105,6 @@ if (isset($_POST['delete'])) {
        
       
 <?php
-
     }
 ?>
 </tbody>
